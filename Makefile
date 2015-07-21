@@ -1,10 +1,14 @@
 default: all
 
-include /usr/share/phantom/module.mk
+PHANTOM?=/usr/share/phantom
+
+include $(PHANTOM)/phantom/module.mk
 
 $(eval $(call MODULE,taurus_source))
 
-include /usr/share/phantom/opts.mk
+include $(PHANTOM)/opts.mk
+
+FIXINC:=$(FIXINC) -isystem $(PHANTOM)
 
 all: $(targets)
 
