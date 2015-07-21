@@ -87,7 +87,7 @@ public:
 				throw exception_sys_t(log::error, errno, "ftell: %m");
 
 			loop_offset -= sizeof(*sched);
-			log_error("start loop at %d", loop_offset);
+			// log_error("start loop at %d", loop_offset); // produces tons of log records for short payloads
 			break;
 		case schedule_t::STOP:
 			stop = true;
@@ -108,7 +108,7 @@ public:
 				return false;
 			}
 			if(timeval::current() > deadline) {
-				log_debug("test duration exceeded, stopping");
+				log_info("max_test_duration exceeded, stopping");
 				return false;
 			}
 
@@ -143,13 +143,13 @@ public:
 
 			in_t::ptr_t tagstart = start;
 			if(!tagstart.scan(" ", 1, limit))
-				throw exception_log_t(log::error, "format error #0");
+				throw exception_log_t(log::error, "format error #0"); // FIXME: can't we have meaningful error messages?
 			tagstart++;
 
 			in_t::ptr_t tagp = tagstart;
 
 			if(!tagp.scan("\r\n", 2, limit))
-				throw exception_log_t(log::error, "format error #1");
+				throw exception_log_t(log::error, "format error #1"); // FIXME: can't we have meaningful error messages?
 			tagp++; tagp++;
 
 			tag = in_segment_t(tagstart, tagp - tagstart - 2);
