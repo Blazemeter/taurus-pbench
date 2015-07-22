@@ -2,7 +2,7 @@ default: all
 
 PHANTOM?=/usr/share/phantom
 
-include $(PHANTOM)/phantom/module.mk
+include $(PHANTOM)/module.mk
 
 $(eval $(call MODULE,taurus_source))
 

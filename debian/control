@@ -1,9 +1,8 @@
 Source: blazemeter-pbench-extras
 Priority: extra
 Maintainer: Andrey Pokhilko <andrey@blazemeter.com>
-Build-Depends: debhelper (>= 8.0.0)
-#, phantom-dev
-Standards-Version: 3.9.2
+Build-Depends: debhelper (>= 8.0.0), phantom-dev
+Standards-Version: 3.9.5
 Homepage: https://github.com/Blazemeter/taurus-pbench
 
 Package: blazemeter-pbench-extras

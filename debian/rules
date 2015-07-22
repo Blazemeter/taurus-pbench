@@ -14,3 +14,12 @@
 
 override_dh_auto_build:
 	make -R
+
+override_dh_auto_clean:
+	make -R clean
+
+override_dh_auto_test:
+	echo No testing implemented
+
+override_dh_auto_install:
+	echo No impl for install
