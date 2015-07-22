@@ -7,5 +7,5 @@ Homepage: https://github.com/Blazemeter/taurus-pbench
 
 Package: blazemeter-pbench-extras
 Architecture: any
-Depends: phantom
+Depends: phantom, phantom-ssl
 Description: Additional modules for Yandex phantom-benchmark
