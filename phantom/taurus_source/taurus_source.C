@@ -76,9 +76,14 @@ public:
 			}
 		}
 
-		interval_t delay = interval::millisecond * (sched->type_and_delay_time_ms & 0xFFFFFF);
-		timeval_last += delay;
-		*interval_sleep = timeval_last - timeval::current();
+		uint32_t delay_val = sched->type_and_delay_time_ms & 0xFFFFFF;
+		if (delay_val == 0xFFFFFF) {
+		  log_debug("Skip waiting, special case");
+		} else {
+		  interval_t delay = interval::millisecond * (delay_val);
+		  timeval_last += delay;
+		  *interval_sleep = timeval_last - timeval::current();
+		}
 
 		int flag = (sched->type_and_delay_time_ms >> 24) & 0xFF;
 		switch(flag) {
@@ -160,6 +165,7 @@ public:
 
 			if(interval_sleep > interval::zero) {
 				if(bq_sleep(&interval_sleep) < 0) {
+					log_debug("Case that returns false");
 					return false;
 				}
 			}

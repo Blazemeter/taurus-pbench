@@ -1,4 +1,10 @@
-blazemeter-pbench-extras (0.0) UNRELEASED; urgency=medium
+blazemeter-pbench-extras (0.1) precise; urgency=medium
+
+  * Add special case for delay=0xFFFFFF
+
+ -- Andrey Pokhilko <apc4@ya.ru>  Sun, 10 Jan 2016 18:15:58 +0300
+
+blazemeter-pbench-extras (0.0) precise; urgency=medium
 
   * Initial release
 

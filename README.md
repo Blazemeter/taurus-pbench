@@ -35,7 +35,7 @@ struct Schedule {
 };
 ```
 
-- delay time means delay from previous record
+- delay time means delay from previous record, special value `0xFFFFFF` means "no delay"
 - payload start is offset in payload file to meta-line start
 - payload len contains both meta-line and payload, but no last \r\n
 - schedule file can be appended at any time and the tool will read it
